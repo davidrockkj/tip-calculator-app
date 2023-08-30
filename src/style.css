@@ -1,9 +1,11 @@
-@import url(https://fonts.google.com/specimen/Space+Mono);
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
 
 *
 {
     padding: 0;
     margin: 0;
+    font-family: 'Space Mono';
 }
 
 :root
@@ -13,15 +15,220 @@
     --dark-grayish-cyan: hsl(186, 14%, 43%);
     --grayish-cyan: hsl(184, 14%, 56%);
     --light-grayish-cyan: hsl(185, 41%, 84%);
-    --very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --very-light-grayish-cyan: hsla(189, 41%, 90%, 50%);
     --white: hsl(0, 0%, 100%);
 }
 
 body
 {
+    width: 100vw;
+    height: 100vh;
+
     font-size: 24px;
     font-family: 'Space Mono';
     font-weight: 700;
 
     background-color: var(--light-grayish-cyan);
+}
+
+.container
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content
+{
+    width: 900px;
+    height: 450px;
+    border-radius: 20px;
+    
+    display: flex;
+
+    background-color: var(--white);
+}
+
+.aside-left, .aside-right
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aside-right
+{
+    justify-content: start!important;
+}
+
+.control-left
+{
+    width: 380px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bill
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.display
+{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+
+    background-image: url(../images/icon-dollar.svg);
+    background-repeat: no-repeat;
+    background-position: 15px 50%;
+    background-color: var(--very-light-grayish-cyan);
+
+    font-family: 'Space Mono';
+    font-weight: 700;
+    font-size: 20px;    
+    text-align: end;
+}
+
+.select-tip
+{
+    width: 100%;
+    display: flex;
+    
+    flex-direction: column;
+}
+
+.group-buttons
+{
+    width: 100%;
+    height: 110px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+    .group-buttons button
+    {
+        width: 31%;
+        height: 40px;
+        border: none;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+
+    .btn
+    {
+        background-color: var(--very-dark-cyan);
+        color: var(--white);
+    }
+
+    .btn-custom
+    {
+        background-color: var(--very-light-grayish-cyan);
+        color: var(--dark-grayish-cyan);
+        font-weight: 700;
+    }
+
+    .number-people
+    {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .number-people input
+    {
+        background-image: url(../images/icon-person.svg);
+    }
+
+.board-right
+{
+    width: 415px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding: 0px 40px; */
+    border-radius: 15px;
+    background-color: var(--very-dark-cyan);
+}
+
+.control-right 
+{
+    width: 330px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.amount
+{
+    width: 100%;
+}
+
+.display-amount
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.display-amount h5
+{
+    font-size: 13px;
+    color: var(--white);
+}
+
+.display-amount h6
+{
+    font-size: 11px;
+    color: var(--very-light-grayish-cyan);
+}
+
+.display-amount .value
+{
+    color: var(--strong-cyan);
+}
+
+.control-right button
+{
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--strong-cyan);
+
+    color: var(--very-dark-cyan);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+button
+{
+    cursor: pointer;
+}
+
+label
+{
+    font-size: 15px;
+    color: var(--dark-grayish-cyan);
+    margin-bottom: 5px;
+}
+
+input
+{
+    color: var(--very-dark-cyan);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,49 +13,51 @@
             <div class="aside-left">
                 <div class="control-left">
                     <div class="bill">
-                        <label for="">Bill</label>
-                        <input type="number" class="display" id="display-bill" value="0.00">
+                        <label for="display-bill">Bill</label>
+                        <input type="number" name="display-bill" class="display" id="display-bill" value="0.00" step="0.01" min="0.01" required>
                     </div>
                     <div class="select-tip">
                         <label for="">Select Tip %</label>
                         <div class="group-buttons">
-                            <button>5%</button>
-                            <button>10%</button>
-                            <button>15%</button>
-                            <button>25%</button>
-                            <button>50%</button>
-                            <button>Custom</button>
+                            <button class="btn" id="btn1">5%</button>
+                            <button class="btn" id="btn2">10%</button>
+                            <button class="btn" id="btn3">15%</button>
+                            <button class="btn" id="btn4">25%</button>
+                            <button class="btn" id="btn5">50%</button>
+                            <button class="btn-custom" id="btn6">Custom</button>
                         </div>
                     </div>
                     <div class="number-people">
                         <label for="">Number of People</label>
-                        <input type="number" class="display" id="display-people" value="1">
+                        <input type="number" class="display" id="display-people" value="1" min="1" step="1">
                     </div>
                 </div>
             </div>
             <div class="aside-right">
-                <div class="control-right">
-                    <div class="amount">
-                        <div class="display-amount">
-                            <div class="name">
-                                <h1>Tip Amount</h1>
-                                <p>/ person</p>
+                <div class="board-right">
+                    <div class="control-right">
+                        <div class="amount">
+                            <div class="display-amount">
+                                <div class="name">
+                                    <h5>Tip Amount</h5>
+                                    <h6>/ person</h6>
+                                </div>
+                                <div class="value">
+                                    <h1 id="tip-value">$0.00</h1>
+                                </div>
                             </div>
-                            <div class="value">
-                                <h2>$0.00</h2>
+                            <div class="display-amount">
+                                <div class="name">
+                                    <h5>Total</h5>
+                                    <h6>/ person</h6>
+                                </div>
+                                <div class="value">
+                                    <h1 id="total-value">$0.00</h1>
+                                </div>
                             </div>
                         </div>
-                        <div class="display-amount">
-                            <div class="name">
-                                <h1>Total</h1>
-                                <p>/ person</p>
-                            </div>
-                            <div class="value">
-                                <h2>$0.00</h2>
-                            </div>
-                        </div>
+                        <button>RESET</button>
                     </div>
-                    <button>RESET</button>
                 </div>
             </div>
         </div>
