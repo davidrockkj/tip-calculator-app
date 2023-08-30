@@ -15,7 +15,7 @@
     --dark-grayish-cyan: hsl(186, 14%, 43%);
     --grayish-cyan: hsl(184, 14%, 56%);
     --light-grayish-cyan: hsl(185, 41%, 84%);
-    --very-light-grayish-cyan: hsla(189, 41%, 90%, 50%);
+    --very-light-grayish-cyan: hsl(189, 41%, 90%);
     --white: hsl(0, 0%, 100%);
 }
 
@@ -88,10 +88,10 @@ body
     height: 40px;
     display: flex;
     align-items: center;
-    border: none;
+    border: 2px solid white;
     border-radius: 5px;
 
-    background-image: url(../images/icon-dollar.svg);
+    background-image: url(./images/icon-dollar.svg);
     background-repeat: no-repeat;
     background-position: 15px 50%;
     background-color: var(--very-light-grayish-cyan);
@@ -100,6 +100,11 @@ body
     font-weight: 700;
     font-size: 20px;    
     text-align: end;
+}
+
+::placeholder
+{
+    color: var(--grayish-cyan);
 }
 
 .select-tip
@@ -128,10 +133,24 @@ body
         font-size: 20px;
     }
 
+    button:hover
+    {
+        color: var(--very-dark-cyan);
+        font-weight: 700;
+        background-color: var(--light-grayish-cyan)!important;
+    }
+
     .btn
     {
         background-color: var(--very-dark-cyan);
         color: var(--white);
+    }
+
+    .btn-active
+    {
+        color: var(--very-dark-cyan);
+        font-weight: 700;
+        background-color: var(--strong-cyan);
     }
 
     .btn-custom
@@ -139,6 +158,12 @@ body
         background-color: var(--very-light-grayish-cyan);
         color: var(--dark-grayish-cyan);
         font-weight: 700;
+    }
+
+    .btn-noclick
+    {
+        opacity: 20%;
+        cursor: auto;
     }
 
     .number-people
@@ -150,7 +175,7 @@ body
 
     .number-people input
     {
-        background-image: url(../images/icon-person.svg);
+        background-image: url(./images/icon-person.svg);
     }
 
 .board-right
@@ -231,4 +256,15 @@ label
 input
 {
     color: var(--very-dark-cyan);
+}
+
+.display:focus
+{
+    border: 2px solid var(--strong-cyan);
+    border-color: var(--strong-cyan);
+}
+
+input[type="number"]:focus {
+    border: 2px solid var(--strong-cyan);
+    outline: none;
 }

@@ -84,13 +84,15 @@ Design by Frontend Mentor
 - Created 'board-right' div
 - Updated text tags
     - h5 and h6
+- Created alternative CSS
 
 <!-- - -->
 <!-- - -->
 
-<!-- <p float="left">
-    <img src="" width="200">
-</p> -->
+<p float="left">
+    <img src="./screenshot/tip-calculator1.png" width="200">
+    <img src="./screenshot/tip-calculator2.png" width="200">
+</p>
 
 <!-- ### 3rd Update -->
 <!-- 00/00/00 -->
