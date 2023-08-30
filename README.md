@@ -8,7 +8,7 @@ Built with HTML, CSS and JavaScript.
 
 - [Overview](#overview)
     - [The Challenge](#the-challenge)
-    - [Design](#screenshot) -->
+    - [Design](#design)
 - [My Process](#my-process)
     - [Built With](#built-with)
     - [What I Learned](#what-i-learned)
