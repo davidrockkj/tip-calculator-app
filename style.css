@@ -140,6 +140,11 @@ body
         background-color: var(--light-grayish-cyan)!important;
     }
 
+    button:focus
+    {
+        outline-color: var(--strong-cyan);
+    }
+
     .btn
     {
         background-color: var(--very-dark-cyan);
