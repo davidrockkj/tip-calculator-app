@@ -142,6 +142,7 @@ body
 
     button:focus
     {
+        outline: 2px solid;
         outline-color: var(--strong-cyan);
     }
 
@@ -169,6 +170,7 @@ body
     {
         opacity: 20%;
         cursor: auto;
+        pointer-events: none;
     }
 
     .number-people
@@ -263,10 +265,10 @@ input
     color: var(--very-dark-cyan);
 }
 
-.display:focus
+.display:focus */
 {
-    border: 2px solid var(--strong-cyan);
-    border-color: var(--strong-cyan);
+    /* border: 10px solid var(--strong-cyan);
+    border-color: var(--strong-cyan); */
 }
 
 input[type="number"]:focus {

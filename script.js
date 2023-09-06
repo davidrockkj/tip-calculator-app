@@ -13,7 +13,9 @@ const reset = document.getElementById("reset");
 
 
 displayBill.addEventListener("input", billFunc);
-displayPeople.addEventListener("input", peopleFunc)
+// displayBill.addEventListener("onblur", totalFunc);
+displayPeople.addEventListener("input", peopleFunc);
+totalValue.addEventListener("input", totalFunc);
 
 // displayBill.value = "0.0";
 displayPeople.value = "1";
@@ -22,32 +24,63 @@ totalValue.innerHTML = "$" + (0.0).toFixed(2);
 
 let billValue = 0.0;
 let peopleValue = 1;
+let tip = 1.00;
 
 reset.disabled = true;
 
 function billFunc() {
     billValue = parseFloat(displayBill.value);
-    console.log(billValue)
+    console.log(displayBill.value);
 
     if (displayBill.value > 0.00) {
         reset.disabled = false;
         reset.classList.remove("btn-noclick");
-        console.log("btn-noclick removido");
+        console.log("SEM btn-noclick");
+        tipFunc()
+        totalFunc();
     } else {
         displayBill.value = "";
         reset.disabled = true;
         reset.classList.add("btn-noclick");
-        console.log("btn-noclick removido");
+        console.log("COM btn-noclick");
+        tipValue.innerText = "$0.00";
+        totalValue.innerText = "$0.00";
     }
 }
-
-
 
 function peopleFunc() {
-    if (peopleValue === 0) {
-
+    if (displayPeople.value >= 1) {
+        peopleValue = displayPeople.value;
+        console.log(peopleValue);
+        tipFunc()
+        totalFunc();
+    } else {
+        
+        peopleValue = 1;
+        displayPeople.value = 1;
     }
 }
+
+function tipFunc() {
+    tipValue.innerText = `$${parseFloat((billValue * (tip-1))/peopleValue).toFixed(2)}`
+    console.log(tipValue)
+}
+
+function totalFunc() {
+    totalValue.innerText = `$${parseFloat((billValue * tip)/peopleValue).toFixed(2)}`;
+    console.log(totalValue);
+}
+
+
+
+// switch (tip) {
+//     case value:
+        
+//         break;
+
+//     default:
+//         break;
+// }
 
 
 
