@@ -124,13 +124,15 @@ body
     justify-content: space-between;
 }
 
-    .group-buttons button
+    .group-buttons button,
+    .group-buttons input
     {
         width: 31%;
         height: 40px;
         border: none;
         border-radius: 5px;
         font-size: 20px;
+        text-align: center;
     }
 
     button:hover
@@ -154,9 +156,9 @@ body
 
     .btn-active
     {
-        color: var(--very-dark-cyan);
+        color: var(--very-dark-cyan)!important;
         font-weight: 700;
-        background-color: var(--strong-cyan);
+        background-color: var(--strong-cyan)!important;
     }
 
     .btn-custom

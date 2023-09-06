@@ -1,108 +1,86 @@
-let displayBill = document.getElementById("display-bill");
-let displayPeople = document.getElementById("display-people");
+let billInput = document.getElementById("display-bill");
+let peopleInput = document.getElementById("display-people");
 let tipValue = document.getElementById("tip-value");
-let totalValue = document.getElementById("total-value");
+let total = document.getElementById("total-value");
 
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
-const btn3 = document.getElementById("btn3");
-const btn4 = document.getElementById("btn4");
-const btn5 = document.getElementById("btn5");
-const btn6 = document.getElementById("btn6");
+
 const reset = document.getElementById("reset");
+const tipButtons = document.querySelectorAll(".btn");
+const tipCustom = document.querySelector(".btn-custom");
 
+let bill = "";
+let people = 1;
+let tip = 0.00;
 
-displayBill.addEventListener("input", billFunc);
-// displayBill.addEventListener("onblur", totalFunc);
-displayPeople.addEventListener("input", peopleFunc);
-totalValue.addEventListener("input", totalFunc);
+billInput.addEventListener("input", billFunc);
+peopleInput.addEventListener("input", peopleFunc);
+tipButtons.forEach(function(val){
+    val.addEventListener("click", handleClick)
+});
 
-// displayBill.value = "0.0";
-displayPeople.value = "1";
-tipValue.innerHTML = "$" + (0.0).toFixed(2);
-totalValue.innerHTML = "$" + (0.0).toFixed(2);
-
-let billValue = 0.0;
-let peopleValue = 1;
-let tip = 1.00;
-
-reset.disabled = true;
+tipCustom.addEventListener("input", tipInputFunc);
 
 function billFunc() {
-    billValue = parseFloat(displayBill.value);
-    console.log(displayBill.value);
+    bill = billInput.value;
 
-    if (displayBill.value > 0.00) {
-        reset.disabled = false;
+    if (bill > 0) {
         reset.classList.remove("btn-noclick");
-        console.log("SEM btn-noclick");
-        tipFunc()
-        totalFunc();
+        console.log(bill);
+        // console.log("Revomendo a classe nonclick");
+        calculate()
     } else {
-        displayBill.value = "";
-        reset.disabled = true;
         reset.classList.add("btn-noclick");
-        console.log("COM btn-noclick");
-        tipValue.innerText = "$0.00";
-        totalValue.innerText = "$0.00";
+        // console.log("Adicionando a classe nonclick");
     }
 }
 
 function peopleFunc() {
-    if (displayPeople.value >= 1) {
-        peopleValue = displayPeople.value;
-        console.log(peopleValue);
-        tipFunc()
-        totalFunc();
+    people = peopleInput.value;
+
+    if (people >= 1) {
+        // console.log(`Quantidade de pessoas: ${people}`);
+        calculate()
     } else {
-        
-        peopleValue = 1;
-        displayPeople.value = 1;
+        peopleInput.value = 1;
     }
 }
 
-function tipFunc() {
-    tipValue.innerText = `$${parseFloat((billValue * (tip-1))/peopleValue).toFixed(2)}`
-    console.log(tipValue)
+function tipInputFunc() {
+    tipValue = parseFloat(tipCustom.value / 100);
+    console.log(tipValue);
+
+    if (tipValue !== Number) {
+        tipValue = 0.00;
+    } else {
+        tipButtons.forEach(function(val) {
+            val.classList.remove("btn-active");
+        });
+    }
+
+    calculate();
 }
 
-function totalFunc() {
-    totalValue.innerText = `$${parseFloat((billValue * tip)/peopleValue).toFixed(2)}`;
-    console.log(totalValue);
+function handleClick(event) {
+    tipButtons.forEach(function (val) {
+        val.classList.remove("btn-active");
+
+        if (event.target.innerHTML == val.innerHTML) {
+            val.classList.add("btn-active");
+            tip = parseFloat(val.innerHTML) / 100;
+            console.log(`A gorjeta é de ${tip}%`)
+        }
+    })
+
+    calculate()
 }
 
+function calculate() {
+    let tipAmount = (bill * tip) / people;
+    // console.log(`${tipAmount} de gorjeta pra cada`);
+    let totalAmount = (bill * (tip + 1)) / people;
+    // console.log(`${total} ao total, pra cada um das ${people} pessoas`);
+    tipValue.innerText = `$${tipAmount.toFixed(2)}`
+    console.log(tipValue);
+    total.innerText = `$${totalAmount.toFixed(2)}`
+}
 
-
-// switch (tip) {
-//     case value:
-        
-//         break;
-
-//     default:
-//         break;
-// }
-
-
-
-
-// function activeReset() {
-//     if (bill > 0) {
-//         reset.disabled = false;
-//         reset.classList.remove("btn-noclick");
-//     }
-// }
-
-// displayBill.innerHTML = ""
-
-// function getVal() {
-//     let bill = document.getElementById("display-bill").value;
-//     console.log(bill);
-// }
-
-// function verValor() {
-//     valor = bill;
-//     var texto = valor.toLocaleString("en-US", 
-//         { style: "currency" , currency:"USD"});
-
-//     console.log(texto);
-// }
